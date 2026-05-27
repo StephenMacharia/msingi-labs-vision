@@ -96,7 +96,7 @@ function Contact() {
             { icon: Mail, label: "Email", val: "hello@msingilabs.co.ke", href: "mailto:hello@msingilabs.co.ke" },
             { icon: MapPin, label: "Office", val: "Nairobi, Kenya" },
           ].map((c) => (
-            <a key={c.label} href={c.href} className="glass rounded-2xl p-6 hover-lift flex items-start gap-4 block">
+            <a key={c.label} href={c.href} className="glass rounded-2xl p-6 hover-lift flex items-start gap-4">
               <div className="w-12 h-12 rounded-xl bg-gradient-hero flex items-center justify-center flex-shrink-0">
                 <c.icon className="w-5 h-5 text-primary-foreground" />
               </div>
