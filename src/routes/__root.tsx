@@ -12,6 +12,8 @@ import appCss from "../styles.css?url";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
+import { Toaster } from "@/components/ui/sonner";
+
 
 
 function NotFoundComponent() {
@@ -127,7 +129,9 @@ function RootComponent() {
       </main>
       <Footer />
       <WhatsAppFloat />
+      <Toaster />
     </QueryClientProvider>
   );
 }
+
 
