@@ -9,6 +9,12 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { Navbar } from "@/components/site/Navbar";
+import { Footer } from "@/components/site/Footer";
+import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
+import { Toaster } from "@/components/ui/sonner";
+
+
 
 function NotFoundComponent() {
   return (
@@ -72,22 +78,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Msingi Labs — Building Africa's Future Through Technology" },
+      { name: "description", content: "Msingi Labs empowers students, schools and organizations with practical digital skills in robotics, coding, AI, IoT and emerging technologies." },
+      { name: "author", content: "Msingi Labs" },
+      { property: "og:title", content: "Msingi Labs — Building Africa's Future Through Technology" },
+      { property: "og:description", content: "Robotics, coding, AI, IoT and STEM education for Africa's next generation." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:site_name", content: "Msingi Labs" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" },
     ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
@@ -113,8 +123,15 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <Navbar />
+      <main className="pt-20">
+        <Outlet />
+      </main>
+      <Footer />
+      <WhatsAppFloat />
+      <Toaster />
     </QueryClientProvider>
   );
 }
+
+
