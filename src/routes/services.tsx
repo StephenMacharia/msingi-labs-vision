@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SectionHeading } from "@/components/site/SectionHeading";
-import { Bot, Code2, BrainCircuit, Cpu, GraduationCap, Lightbulb, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Bot, Code2, Handshake, HeartHandshake, GraduationCap, Lightbulb, ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -19,9 +19,9 @@ export const Route = createFileRoute("/services")({
 const services = [
   { icon: Bot, title: "Robotics Training", desc: "Hands-on robotics with Arduino, sensors and competition prep.", bullets: ["Arduino & microcontrollers", "Sensor integration", "Robotics competitions"], price: "KES 12,000 / 10 sessions" },
   { icon: Code2, title: "Coding Classes", desc: "Web, Python and app development from first principles.", bullets: ["Web development", "Python programming", "Mobile app development"], price: "Beginner → Advanced" },
-  { icon: BrainCircuit, title: "AI & Emerging Tech", desc: "Foundations of AI and machine learning, applied to real problems.", bullets: ["AI fundamentals", "Machine learning concepts", "Modern AI tools"], price: "Future-ready" },
-  { icon: Cpu, title: "IoT Solutions", desc: "Build smart systems that sense, decide and act.", bullets: ["Smart systems", "Sensor integration", "Automation projects"], price: "Build smart" },
-  { icon: GraduationCap, title: "STEM Workshops", desc: "School workshops, holiday bootcamps and innovation challenges.", bullets: ["School workshops", "Holiday bootcamps", "Innovation challenges"], price: "Schools & camps" },
+  { icon: Handshake, title: "Robotics Clubs in Schools", desc: "We partner with schools to establish and sustain robotics clubs.", bullets: ["Club setup & curriculum", "Trainer support", "Long-term partnerships"], price: "Partnership-based" },
+  { icon: HeartHandshake, title: "Outreach Programs", desc: "Community STEM outreach to reach learners beyond the classroom.", bullets: ["School & community visits", "Pop-up workshops", "Mentorship sessions"], price: "Community impact" },
+  { icon: GraduationCap, title: "STEM Workshops", desc: "School workshops, holiday bootcamps and innovation challenges — scheduled around your timeline.", bullets: ["School workshops", "Holiday bootcamps", "Custom schedules for clients"], price: "Schools & clients" },
   { icon: Lightbulb, title: "Tech Consultancy", desc: "Strategy and custom builds for the digital transformation journey.", bullets: ["Digital transformation", "Custom tech solutions", "Innovation strategy"], price: "For businesses" },
 ];
 
