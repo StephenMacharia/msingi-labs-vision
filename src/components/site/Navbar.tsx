@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Cpu } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logo from "@/assets/msingi-logo.png";
 
 const links = [
   { to: "/", label: "Home" },
@@ -29,13 +30,14 @@ export function Navbar() {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-hero flex items-center justify-center glow-cyan group-hover:scale-110 transition-transform">
-            <Cpu className="w-5 h-5 text-primary-foreground" />
-          </div>
-          <span className="font-display font-bold text-xl">
-            Msingi<span className="text-gradient">Labs</span>
-          </span>
+        <Link to="/" className="flex items-center group" aria-label="Msingi Labs home">
+          <img
+            src={logo}
+            alt="Msingi Labs"
+            width={220}
+            height={64}
+            className="h-9 md:h-10 w-auto group-hover:scale-105 transition-transform"
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
