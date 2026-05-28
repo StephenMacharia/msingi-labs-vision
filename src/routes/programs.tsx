@@ -17,11 +17,9 @@ export const Route = createFileRoute("/programs")({
 });
 
 const programs = [
-  { title: "Kids Coding Program", duration: "8 weeks", level: "Ages 8–14", outcome: "First working web app & game", highlights: ["Scratch → JavaScript", "Game building", "Mini portfolio"] },
+  { title: "Kids Coding Program", duration: "8 weeks (flexible)", level: "Ages 8–14", outcome: "First working web app & game", highlights: ["Scratch → JavaScript", "Game building", "Mini portfolio"] },
   { title: "Robotics for Schools", duration: "Termly", level: "All schools", outcome: "Compete-ready robotics team", highlights: ["Arduino + sensors", "Team-based builds", "Competition prep"] },
   { title: "University Tech Bootcamp", duration: "12 weeks", level: "Intermediate", outcome: "3 deployed projects in your portfolio", highlights: ["Full-stack web", "Cloud deployment", "Real client briefs"] },
-  { title: "AI Essentials", duration: "6 weeks", level: "Beginner", outcome: "Build & deploy AI-powered tools", highlights: ["AI foundations", "Prompting & APIs", "Ship an AI app"] },
-  { title: "IoT Innovation Lab", duration: "10 weeks", level: "Advanced", outcome: "Smart prototype + pitch deck", highlights: ["MQTT & sensors", "Cloud dashboards", "Pitch to investors"] },
   { title: "Holiday Tech Camp", duration: "2 weeks", level: "All ages", outcome: "Mini robotics & coding project", highlights: ["Daily builds", "Team challenges", "Showcase day"] },
 ];
 
