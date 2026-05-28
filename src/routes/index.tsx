@@ -1,20 +1,20 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-tech.jpg";
-import { Counter } from "@/components/site/Counter";
 import { SectionHeading } from "@/components/site/SectionHeading";
+import { RegisterDialog } from "@/components/site/RegisterDialog";
 import {
-  Bot, Code2, BrainCircuit, Cpu, GraduationCap, Lightbulb,
+  Bot, Code2, Handshake, HeartHandshake, GraduationCap, Lightbulb,
   ArrowRight, Sparkles, Rocket, Users, Trophy, Target,
-  CheckCircle2, Calendar, Star, Quote
+  CheckCircle2, Calendar, CalendarClock
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Msingi Labs — Building Africa's Future Through Technology" },
-      { name: "description", content: "Practical training in robotics, coding, AI, IoT and emerging technologies for students, schools and organizations across Africa." },
+      { name: "description", content: "Practical training in robotics, coding and STEM for students, schools and organizations across Africa." },
       { property: "og:title", content: "Msingi Labs — Building Africa's Future" },
-      { property: "og:description", content: "Robotics, coding, AI and STEM education for Africa's next generation." },
+      { property: "og:description", content: "Robotics, coding and STEM education for Africa's next generation." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -23,10 +23,10 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { icon: Bot, title: "Robotics Training", desc: "Hands-on robotics with Arduino, sensors and competition prep.", price: "From KES 12,000" },
+  { icon: Bot, title: "Robotics Training", desc: "Hands-on robotics with Arduino, sensors and competition prep.", price: "KES 12,000 / 10 sessions" },
   { icon: Code2, title: "Coding Classes", desc: "Web, Python and app development — beginner to advanced.", price: "Beginner → Advanced" },
-  { icon: BrainCircuit, title: "AI & ML", desc: "AI foundations, machine learning concepts and real-world tools.", price: "Future-ready" },
-  { icon: Cpu, title: "IoT Solutions", desc: "Smart systems, sensor integration and automation projects.", price: "Build smart" },
+  { icon: Handshake, title: "Robotics Clubs in Schools", desc: "We partner with schools to set up and run sustainable robotics clubs.", price: "Partnership-based" },
+  { icon: HeartHandshake, title: "Outreach Programs", desc: "Community STEM outreach reaching learners beyond the classroom.", price: "Community impact" },
   { icon: GraduationCap, title: "STEM Workshops", desc: "School workshops, bootcamps and innovation challenges.", price: "Schools & camps" },
   { icon: Lightbulb, title: "Tech Consultancy", desc: "Digital transformation, custom tech and innovation strategy.", price: "For businesses" },
 ];
@@ -35,41 +35,23 @@ const programs = [
   { title: "Kids Coding Program", duration: "8 weeks", level: "Ages 8–14", outcome: "First working web app & game" },
   { title: "Robotics for Schools", duration: "Term-based", level: "All schools", outcome: "Compete-ready robotics team" },
   { title: "University Tech Bootcamp", duration: "12 weeks", level: "Intermediate", outcome: "Portfolio of 3 deployed projects" },
-  { title: "AI Essentials", duration: "6 weeks", level: "Beginner", outcome: "Build & deploy AI-powered tools" },
-  { title: "IoT Innovation Lab", duration: "10 weeks", level: "Advanced", outcome: "Smart prototype + pitch deck" },
   { title: "Holiday Tech Camp", duration: "2 weeks", level: "All ages", outcome: "Mini robotics & coding project" },
 ];
 
 const whyUs = [
   { icon: Target, title: "Hands-on Learning", desc: "Build real things from week one. No passive lectures." },
-  { icon: Rocket, title: "Industry-Relevant Skills", desc: "Curriculum aligned with where tech is going, not where it was." },
+  { icon: CalendarClock, title: "Flexible & Custom", desc: "We teach schools, groups and individuals — and tailor the timeline to when you want to learn." },
   { icon: Users, title: "Experienced Trainers", desc: "Practising engineers and educators who've shipped real work." },
   { icon: Sparkles, title: "Innovation-Focused", desc: "Every learner leaves with an idea worth building." },
   { icon: Trophy, title: "Real-World Projects", desc: "Portfolio-ready work, not throwaway exercises." },
   { icon: CheckCircle2, title: "Affordable & Accessible", desc: "Pricing built for African students, schools and families." },
 ];
 
-const projects = [
-  { title: "Smart Irrigation IoT", tag: "IoT", desc: "Soil-sensor driven watering system built by students." },
-  { title: "Line-Following Robot", tag: "Robotics", desc: "Arduino bot that maps and navigates obstacle courses." },
-  { title: "School Attendance App", tag: "Software", desc: "Mobile app with biometric check-in for high schools." },
-  { title: "AI Crop Disease Detector", tag: "AI", desc: "Computer vision model identifying plant diseases from photos." },
-  { title: "Solar Tracker", tag: "IoT", desc: "Servo-controlled panel that follows the sun for max output." },
-  { title: "Robotic Arm v2", tag: "Robotics", desc: "Six-axis arm controlled via mobile app and voice commands." },
-];
-
-const testimonials = [
-  { name: "Aisha M.", role: "Student", org: "Strathmore School", text: "I built my first robot in week three. Msingi Labs changed how I see what's possible.", rating: 5 },
-  { name: "John K.", role: "Head Teacher", org: "Nairobi STEM Academy", text: "Our students lit up. The trainers brought industry-grade equipment and real passion.", rating: 5 },
-  { name: "Mary W.", role: "Parent", org: "", text: "My daughter went from gaming all day to building her own apps. Worth every shilling.", rating: 5 },
-  { name: "Dr. Otieno", role: "Director", org: "Pwani Innovation Hub", text: "A serious partner for STEM rollout. Reliable, thoughtful, results-driven.", rating: 5 },
-];
-
 const events = [
   { date: "Mar 15", title: "Inter-Schools Robotics Championship", where: "Nairobi" },
-  { date: "Apr 02", title: "Youth AI Hackathon", where: "Mombasa" },
-  { date: "Apr 20", title: "STEM Outreach — Western Kenya", where: "Kisumu" },
-  { date: "May 10", title: "Innovation Expo 2026", where: "KICC, Nairobi" },
+  { date: "Apr 02", title: "Youth Innovation Hackathon", where: "Mombasa" },
+  { date: "May 10", title: "STEM Competition Finals", where: "KICC, Nairobi" },
+  { date: "Jun 08", title: "Coding & Robotics Hackathon", where: "Kisumu" },
 ];
 
 function Home() {
@@ -88,18 +70,31 @@ function Home() {
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed">
               Msingi Labs empowers students, schools and organizations with practical digital
-              skills in robotics, coding, AI and emerging technologies.
+              skills in robotics, coding and STEM — on a timeline that fits you.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link to="/programs" className="px-6 py-3.5 rounded-full bg-gradient-hero text-primary-foreground font-semibold glow-cyan hover:scale-105 transition-transform inline-flex items-center gap-2">
-                Get Started <ArrowRight className="w-4 h-4" />
-              </Link>
+              <RegisterDialog
+                title="Get started with Msingi Labs"
+                description="Tell us what you'd like to learn or partner on."
+                trigger={
+                  <button className="px-6 py-3.5 rounded-full bg-gradient-hero text-primary-foreground font-semibold glow-cyan hover:scale-105 transition-transform inline-flex items-center gap-2">
+                    Get Started <ArrowRight className="w-4 h-4" />
+                  </button>
+                }
+              />
               <Link to="/programs" className="px-6 py-3.5 rounded-full glass font-semibold hover:border-primary transition-colors">
                 Explore Programs
               </Link>
-              <Link to="/contact" className="px-6 py-3.5 rounded-full glass font-semibold hover:border-primary transition-colors">
-                Book a Session
-              </Link>
+              <RegisterDialog
+                title="Book a session"
+                description="Pick a topic and we'll find a time that works for you."
+                defaultInterest="Book a session"
+                trigger={
+                  <button className="px-6 py-3.5 rounded-full glass font-semibold hover:border-primary transition-colors">
+                    Book a Session
+                  </button>
+                }
+              />
             </div>
           </div>
           <div className="relative animate-float">
@@ -114,7 +109,7 @@ function Home() {
           </div>
         </div>
 
-        {/* STATS */}
+        {/* STATS — temporarily hidden until we have verified numbers
         <div className="container mx-auto px-6 pb-20">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {[
@@ -132,6 +127,7 @@ function Home() {
             ))}
           </div>
         </div>
+        */}
       </section>
 
       {/* ABOUT */}
@@ -162,7 +158,7 @@ function Home() {
           <div className="grid grid-cols-2 gap-4">
             {[
               { icon: Users, n: "Youth-first", l: "Every program built around young innovators" },
-              { icon: Trophy, n: "Award-winning", l: "Competition-ready students & teams" },
+              { icon: Trophy, n: "Award-ready", l: "Competition-ready students & teams" },
               { icon: Rocket, n: "Future-ready", l: "Tomorrow's tech, taught today" },
               { icon: Sparkles, n: "Pan-African", l: "Built for the continent, by the continent" },
             ].map((c, i) => (
@@ -181,7 +177,7 @@ function Home() {
         <SectionHeading
           eyebrow="What We Do"
           title="Services built for the next generation"
-          subtitle="From first lines of code to deployed AI systems — we meet every learner where they are."
+          subtitle="From first lines of code to deployed projects — we meet every learner where they are."
         />
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s) => (
@@ -209,7 +205,7 @@ function Home() {
           title="Structured pathways to mastery"
           subtitle="Pick the program that fits your goals — every track is project-based and outcome-driven."
         />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {programs.map((p, i) => (
             <div key={p.title} className="glass rounded-2xl p-7 hover-lift">
               <div className="text-xs text-primary font-bold tracking-wider mb-3">PROGRAM 0{i + 1}</div>
@@ -244,59 +240,24 @@ function Home() {
         </div>
       </section>
 
-      {/* PROJECTS */}
+      {/* PROJECTS — coming soon as we grow
       <section className="container mx-auto px-6 py-24">
-        <SectionHeading
-          eyebrow="Portfolio"
-          title="Projects built by our learners"
-          subtitle="Real problems, real prototypes, real impact."
-        />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((p) => (
-            <div key={p.title} className="group relative overflow-hidden rounded-2xl glass hover-lift">
-              <div className="h-48 bg-gradient-hero relative overflow-hidden">
-                <div className="absolute inset-0 opacity-30 mix-blend-overlay" style={{ backgroundImage: "radial-gradient(circle at 30% 30%, white, transparent 60%)" }} />
-                <div className="absolute top-4 right-4 px-3 py-1 rounded-full glass text-xs font-semibold">{p.tag}</div>
-              </div>
-              <div className="p-6">
-                <h3 className="font-display font-bold text-lg mb-2">{p.title}</h3>
-                <p className="text-sm text-muted-foreground">{p.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <SectionHeading eyebrow="Portfolio" title="Projects built by our learners" />
       </section>
+      */}
 
-      {/* TESTIMONIALS */}
+      {/* TESTIMONIALS — will return once we collect verified community feedback
       <section className="container mx-auto px-6 py-24">
-        <SectionHeading
-          eyebrow="Voices"
-          title="What our community says"
-        />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {testimonials.map((t) => (
-            <div key={t.name} className="glass rounded-2xl p-6 hover-lift relative">
-              <Quote className="w-8 h-8 text-primary/30 mb-3" />
-              <p className="text-sm leading-relaxed mb-5">"{t.text}"</p>
-              <div className="flex gap-0.5 mb-3">
-                {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                ))}
-              </div>
-              <div className="pt-3 border-t border-border">
-                <div className="font-semibold text-sm">{t.name}</div>
-                <div className="text-xs text-muted-foreground">{t.role}{t.org && ` · ${t.org}`}</div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <SectionHeading eyebrow="Voices" title="What our community says" />
       </section>
+      */}
 
       {/* EVENTS */}
       <section className="container mx-auto px-6 py-24">
         <SectionHeading
           eyebrow="Events & Workshops"
           title="Where innovation comes alive"
+          subtitle="STEM competitions and hackathons we host and take part in as we grow."
         />
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {events.map((e) => (
@@ -323,9 +284,35 @@ function Home() {
               Join the next generation of African innovators. Whether you're a student, school or business — we have a path for you.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
-              <Link to="/programs" className="px-7 py-3.5 rounded-full bg-background text-foreground font-semibold hover:scale-105 transition-transform">Join a Program</Link>
-              <Link to="/contact" className="px-7 py-3.5 rounded-full glass text-primary-foreground font-semibold border-white/30 hover:bg-white/10 transition-colors">Partner With Us</Link>
-              <Link to="/contact" className="px-7 py-3.5 rounded-full glass text-primary-foreground font-semibold border-white/30 hover:bg-white/10 transition-colors">Contact Us</Link>
+              <RegisterDialog
+                title="Join a program"
+                description="Tell us which program you're interested in and we'll guide you through enrollment."
+                defaultInterest="Join a program"
+                trigger={
+                  <button className="px-7 py-3.5 rounded-full bg-background text-foreground font-semibold hover:scale-105 transition-transform">
+                    Join a Program
+                  </button>
+                }
+              />
+              <RegisterDialog
+                title="Partner with us"
+                description="Schools, NGOs and businesses — let's build something together."
+                defaultInterest="Partnership"
+                trigger={
+                  <button className="px-7 py-3.5 rounded-full glass text-primary-foreground font-semibold border-white/30 hover:bg-white/10 transition-colors">
+                    Partner With Us
+                  </button>
+                }
+              />
+              <RegisterDialog
+                title="Contact Msingi Labs"
+                description="Send us a message and we'll respond within 24 hours."
+                trigger={
+                  <button className="px-7 py-3.5 rounded-full glass text-primary-foreground font-semibold border-white/30 hover:bg-white/10 transition-colors">
+                    Contact Us
+                  </button>
+                }
+              />
             </div>
           </div>
         </div>
