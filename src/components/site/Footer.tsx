@@ -1,18 +1,14 @@
 import { Link } from "@tanstack/react-router";
-import { Cpu, Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import logo from "@/assets/msingi-logo.png";
 
 export function Footer() {
   return (
     <footer className="relative border-t border-border mt-32">
       <div className="container mx-auto px-6 py-16 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Link to="/" className="flex items-center gap-2 mb-4">
-            <div className="w-10 h-10 rounded-xl bg-gradient-hero flex items-center justify-center">
-              <Cpu className="w-5 h-5 text-primary-foreground" />
-            </div>
-            <span className="font-display font-bold text-xl">
-              Msingi<span className="text-gradient">Labs</span>
-            </span>
+          <Link to="/" className="inline-flex items-center mb-4" aria-label="Msingi Labs home">
+            <img src={logo} alt="Msingi Labs" width={240} height={70} className="h-12 w-auto" />
           </Link>
           <p className="text-sm text-muted-foreground leading-relaxed">
             Empowering Africa's next generation through robotics, coding, AI and emerging technologies.
