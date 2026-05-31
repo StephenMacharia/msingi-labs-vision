@@ -6,9 +6,9 @@ export const Route = createFileRoute("/programs")({
   head: () => ({
     meta: [
       { title: "Programs — Msingi Labs" },
-      { name: "description", content: "Structured learning programs in coding, robotics, AI, IoT and STEM for kids, schools, universities and businesses." },
+      { name: "description", content: "Structured learning programs in coding, robotics and STEM for kids, schools and businesses." },
       { property: "og:title", content: "Programs — Msingi Labs" },
-      { property: "og:description", content: "Project-based programs from kids coding to AI essentials and IoT innovation." },
+      { property: "og:description", content: "Project-based programs from kids coding to tech bootcamps and STEM workshops." },
       { property: "og:url", content: "/programs" },
     ],
     links: [{ rel: "canonical", href: "/programs" }],
@@ -18,8 +18,8 @@ export const Route = createFileRoute("/programs")({
 
 const programs = [
   { title: "Kids Coding Program", duration: "8 weeks (flexible)", level: "Ages 8–14", outcome: "First working web app & game", highlights: ["Scratch → JavaScript", "Game building", "Mini portfolio"] },
-  { title: "Robotics for Schools", duration: "Termly", level: "All schools", outcome: "Compete-ready robotics team", highlights: ["Arduino + sensors", "Team-based builds", "Competition prep"] },
-  { title: "University Tech Bootcamp", duration: "12 weeks", level: "Intermediate", outcome: "3 deployed projects in your portfolio", highlights: ["Full-stack web", "Cloud deployment", "Real client briefs"] },
+  { title: "Robotics for Schools", duration: "12 sessions", level: "All schools", outcome: "Compete-ready robotics team", highlights: ["Arduino + sensors", "Team-based builds", "Competition prep"], price: "KES 12,000" },
+  { title: "Tech Bootcamp", duration: "12 weeks", level: "Intermediate", outcome: "3 deployed projects in your portfolio", highlights: ["Full-stack web", "Cloud deployment", "Real client briefs"] },
   { title: "Holiday Tech Camp", duration: "2 weeks", level: "All ages", outcome: "Mini robotics & coding project", highlights: ["Daily builds", "Team challenges", "Showcase day"] },
 ];
 
@@ -39,6 +39,7 @@ function Programs() {
             <div className="space-y-2 text-sm mb-5">
               <div className="flex justify-between"><span className="text-muted-foreground">Duration</span><span className="font-semibold">{p.duration}</span></div>
               <div className="flex justify-between"><span className="text-muted-foreground">Level</span><span className="font-semibold">{p.level}</span></div>
+              {p.price && <div className="flex justify-between"><span className="text-muted-foreground">Price</span><span className="font-semibold text-primary">{p.price}</span></div>}
             </div>
             <ul className="space-y-1.5 text-sm text-muted-foreground mb-5">
               {p.highlights.map((h) => <li key={h}>• {h}</li>)}
