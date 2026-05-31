@@ -42,9 +42,10 @@ export function Footer() {
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li>Robotics Training</li>
             <li>Coding Classes</li>
-            <li>AI & Machine Learning</li>
-            <li>IoT Solutions</li>
+            <li>Robotics Clubs in Schools</li>
+            <li>Outreach Programs</li>
             <li>STEM Workshops</li>
+            <li>Tech Consultancy</li>
           </ul>
         </div>
 
