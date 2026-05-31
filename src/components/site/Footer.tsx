@@ -64,7 +64,7 @@ export function Footer() {
           </form>
           <div className="space-y-2 text-sm text-muted-foreground">
             <p className="flex items-center gap-2"><Phone className="w-4 h-4 text-primary" /><span>+254 726 333 992</span></p>
-            <p className="flex items-center gap-2"><Mail className="w-4 h-4 text-primary" /><span>hello@msingilabs.co.ke</span></p>
+            {/* <p className="flex items-center gap-2"><Mail className="w-4 h-4 text-primary" /><span>hello@msingilabs.co.ke</span></p> */}
             <p className="flex items-center gap-2"><MapPin className="w-4 h-4 text-primary" /><span>Nairobi, Kenya</span></p>
           </div>
         </div>
