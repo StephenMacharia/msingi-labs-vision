@@ -82,10 +82,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Msingi Labs empowers students, schools and organizations with practical digital skills in robotics, coding, AI, IoT and emerging technologies." },
       { name: "author", content: "Msingi Labs" },
       { property: "og:title", content: "Msingi Labs — Building Africa's Future Through Technology" },
-      { property: "og:description", content: "Robotics, coding, AI, IoT and STEM education for Africa's next generation." },
+      { property: "og:description", content: "Msingi Labs empowers students, schools and organizations with practical digital skills in robotics, coding, AI, IoT and emerging technologies." },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Msingi Labs" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Msingi Labs — Building Africa's Future Through Technology" },
+      { name: "twitter:description", content: "Msingi Labs empowers students, schools and organizations with practical digital skills in robotics, coding, AI, IoT and emerging technologies." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/HuvqLYcLx8craMFgIxhiB83RdvN2/social-images/social-1780266875063-logov3.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/HuvqLYcLx8craMFgIxhiB83RdvN2/social-images/social-1780266875063-logov3.webp" },
     ],
     links: [
       {
