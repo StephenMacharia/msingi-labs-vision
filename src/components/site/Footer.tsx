@@ -11,7 +11,7 @@ export function Footer() {
             <img src={logo} alt="Msingi Labs" width={240} height={70} className="h-12 w-auto" />
           </Link>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Empowering Africa's next generation through robotics, coding, AI and emerging technologies.
+            Empowering Africa's next generation through robotics, coding and emerging technologies.
           </p>
           <div className="flex gap-3 mt-6">
             {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
@@ -42,9 +42,10 @@ export function Footer() {
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li>Robotics Training</li>
             <li>Coding Classes</li>
-            <li>AI & Machine Learning</li>
-            <li>IoT Solutions</li>
+            <li>Robotics Clubs in Schools</li>
+            <li>Outreach Programs</li>
             <li>STEM Workshops</li>
+            <li>Tech Consultancy</li>
           </ul>
         </div>
 

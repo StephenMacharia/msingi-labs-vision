@@ -6,7 +6,7 @@ export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: "Services — Msingi Labs" },
-      { name: "description", content: "Robotics training, coding classes, AI & ML, IoT solutions, STEM workshops and tech consultancy for Africa." },
+      { name: "description", content: "Robotics training, coding classes, school robotics clubs, outreach programs, STEM workshops and tech consultancy for Africa." },
       { property: "og:title", content: "Services — Msingi Labs" },
       { property: "og:description", content: "Hands-on tech training and consultancy for students, schools and businesses." },
       { property: "og:url", content: "/services" },
