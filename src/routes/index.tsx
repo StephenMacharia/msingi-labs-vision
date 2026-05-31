@@ -1,12 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-tech.jpg";
-import { SectionHeading } from "@/components/site/SectionHeading";
 import { RegisterDialog } from "@/components/site/RegisterDialog";
 import {
-  Bot, Code2, Handshake, HeartHandshake, GraduationCap, Lightbulb,
-  ArrowRight, Sparkles, Rocket, Users, Trophy, Target,
-  CheckCircle2, Calendar, CalendarClock
+  Bot, Code2, GraduationCap, Handshake,
+  ArrowRight, Sparkles,
 } from "lucide-react";
+
+const highlights = [
+  { icon: Bot, title: "Robotics & Coding", desc: "Hands-on training for students, schools and groups.", to: "/services" as const, cta: "See services" },
+  { icon: GraduationCap, title: "Structured Programs", desc: "Project-based pathways from kids to university bootcamps.", to: "/programs" as const, cta: "Browse programs" },
+  { icon: Handshake, title: "Partnerships", desc: "We set up sustainable robotics clubs in schools.", to: "/about" as const, cta: "About us" },
+  { icon: Code2, title: "Talk to us", desc: "Custom timelines for schools, businesses and individuals.", to: "/contact" as const, cta: "Get in touch" },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
