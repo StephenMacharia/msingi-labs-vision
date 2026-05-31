@@ -39,6 +39,7 @@ function Programs() {
             <div className="space-y-2 text-sm mb-5">
               <div className="flex justify-between"><span className="text-muted-foreground">Duration</span><span className="font-semibold">{p.duration}</span></div>
               <div className="flex justify-between"><span className="text-muted-foreground">Level</span><span className="font-semibold">{p.level}</span></div>
+              {p.price && <div className="flex justify-between"><span className="text-muted-foreground">Price</span><span className="font-semibold text-primary">{p.price}</span></div>}
             </div>
             <ul className="space-y-1.5 text-sm text-muted-foreground mb-5">
               {p.highlights.map((h) => <li key={h}>• {h}</li>)}
