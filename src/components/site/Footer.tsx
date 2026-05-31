@@ -11,7 +11,7 @@ export function Footer() {
             <img src={logo} alt="Msingi Labs" width={240} height={70} className="h-12 w-auto" />
           </Link>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Empowering Africa's next generation through robotics, coding, AI and emerging technologies.
+            Empowering Africa's next generation through robotics, coding and emerging technologies.
           </p>
           <div className="flex gap-3 mt-6">
             {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
