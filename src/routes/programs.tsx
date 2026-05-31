@@ -6,9 +6,9 @@ export const Route = createFileRoute("/programs")({
   head: () => ({
     meta: [
       { title: "Programs — Msingi Labs" },
-      { name: "description", content: "Structured learning programs in coding, robotics, AI, IoT and STEM for kids, schools, universities and businesses." },
+      { name: "description", content: "Structured learning programs in coding, robotics and STEM for kids, schools and businesses." },
       { property: "og:title", content: "Programs — Msingi Labs" },
-      { property: "og:description", content: "Project-based programs from kids coding to AI essentials and IoT innovation." },
+      { property: "og:description", content: "Project-based programs from kids coding to tech bootcamps and STEM workshops." },
       { property: "og:url", content: "/programs" },
     ],
     links: [{ rel: "canonical", href: "/programs" }],
