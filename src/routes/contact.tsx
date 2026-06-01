@@ -27,16 +27,30 @@ const schema = z.object({
 
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const r = schema.safeParse(form);
     if (!r.success) {
       toast.error(r.error.issues[0].message);
       return;
     }
-    toast.success("Thanks! We'll get back to you within 24 hours.");
-    setForm({ name: "", email: "", message: "" });
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://formspree.io/f/mvzyjgbj", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ ...r.data, _subject: `New contact from ${r.data.name}` }),
+      });
+      if (!res.ok) throw new Error("Failed");
+      toast.success("Thanks! We'll get back to you within 24 hours.");
+      setForm({ name: "", email: "", message: "" });
+    } catch {
+      toast.error("Something went wrong. Please try again or email us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
