@@ -22,6 +22,7 @@ const programs = [
   { title: "Robotics for Schools", duration: "Custom partnerships", level: "All schools", outcome: "Compete-ready robotics team", highlights: ["Arduino + sensors", "Team-based builds", "Competition prep"], price: "Custom partnership" },
   { title: "Tech Bootcamp", duration: "12 weeks", level: "Intermediate", outcome: "3 deployed projects in your portfolio", highlights: ["Full-stack web", "Cloud deployment", "Real client briefs"] },
   { title: "Holiday Tech Camp", duration: "2 weeks", level: "All ages", outcome: "Mini robotics & coding project", highlights: ["Daily builds", "Team challenges", "Showcase day"] },
+  { title: "Educator Training", duration: "Custom", level: "Teachers & facilitators", outcome: "Confident to teach coding & robotics", highlights: ["Curriculum support", "Hands-on robotics & coding", "Classroom-ready resources"], price: "Custom partnership" },
 ];
 
 function Programs() {
