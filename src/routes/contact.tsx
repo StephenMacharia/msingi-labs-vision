@@ -97,9 +97,10 @@ function Contact() {
             </div>
             <button
               type="submit"
-              className="w-full px-6 py-3.5 rounded-xl bg-gradient-hero text-primary-foreground font-semibold glow-cyan hover:scale-[1.02] transition-transform inline-flex items-center justify-center gap-2"
+              disabled={submitting}
+              className="w-full px-6 py-3.5 rounded-xl bg-gradient-hero text-primary-foreground font-semibold glow-cyan hover:scale-[1.02] transition-transform inline-flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Send Message <Send className="w-4 h-4" />
+              {submitting ? "Sending..." : "Send Message"} <Send className="w-4 h-4" />
             </button>
           </form>
         </div>
