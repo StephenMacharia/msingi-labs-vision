@@ -27,16 +27,30 @@ const schema = z.object({
 
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const r = schema.safeParse(form);
     if (!r.success) {
       toast.error(r.error.issues[0].message);
       return;
     }
-    toast.success("Thanks! We'll get back to you within 24 hours.");
-    setForm({ name: "", email: "", message: "" });
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://formspree.io/f/mvzyjgbj", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ ...r.data, _subject: `New contact from ${r.data.name}` }),
+      });
+      if (!res.ok) throw new Error("Failed");
+      toast.success("Thanks! We'll get back to you within 24 hours.");
+      setForm({ name: "", email: "", message: "" });
+    } catch {
+      toast.error("Something went wrong. Please try again or email us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -83,9 +97,10 @@ function Contact() {
             </div>
             <button
               type="submit"
-              className="w-full px-6 py-3.5 rounded-xl bg-gradient-hero text-primary-foreground font-semibold glow-cyan hover:scale-[1.02] transition-transform inline-flex items-center justify-center gap-2"
+              disabled={submitting}
+              className="w-full px-6 py-3.5 rounded-xl bg-gradient-hero text-primary-foreground font-semibold glow-cyan hover:scale-[1.02] transition-transform inline-flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Send Message <Send className="w-4 h-4" />
+              {submitting ? "Sending..." : "Send Message"} <Send className="w-4 h-4" />
             </button>
           </form>
         </div>

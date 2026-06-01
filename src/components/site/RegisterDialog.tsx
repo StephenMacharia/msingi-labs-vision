@@ -26,16 +26,31 @@ export function RegisterDialog({
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", phone: "", interest: defaultInterest, message: "" });
 
-  const onSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const r = schema.safeParse(form);
     if (!r.success) {
       toast.error(r.error.issues[0].message);
       return;
     }
-    toast.success("Thanks! We'll be in touch within 24 hours.");
-    setForm({ name: "", email: "", phone: "", interest: defaultInterest, message: "" });
-    setOpen(false);
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://formspree.io/f/mvzyjgbj", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ ...r.data, _subject: `New registration: ${r.data.interest}` }),
+      });
+      if (!res.ok) throw new Error("Failed");
+      toast.success("Thanks! We'll be in touch within 24 hours.");
+      setForm({ name: "", email: "", phone: "", interest: defaultInterest, message: "" });
+      setOpen(false);
+    } catch {
+      toast.error("Something went wrong. Please try again or email us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -104,9 +119,10 @@ export function RegisterDialog({
           </div>
           <button
             type="submit"
-            className="w-full px-6 py-3 rounded-xl bg-gradient-hero text-primary-foreground font-semibold glow-cyan hover:scale-[1.02] transition-transform inline-flex items-center justify-center gap-2"
+            disabled={submitting}
+            className="w-full px-6 py-3 rounded-xl bg-gradient-hero text-primary-foreground font-semibold glow-cyan hover:scale-[1.02] transition-transform inline-flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            Submit <Send className="w-4 h-4" />
+            {submitting ? "Sending..." : "Submit"} <Send className="w-4 h-4" />
           </button>
         </form>
       </DialogContent>
