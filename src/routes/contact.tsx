@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SectionHeading } from "@/components/site/SectionHeading";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { Phone, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -108,7 +108,6 @@ function Contact() {
         <div className="space-y-6">
           {[
             { icon: Phone, label: "Phone", val: "+254 726 333 992", href: "tel:+254726333992" },
-            { icon: Mail, label: "Email", val: "hello@msingilabs.co.ke", href: "mailto:hello@msingilabs.co.ke" },
             { icon: MapPin, label: "Office", val: "Nairobi, Kenya" },
           ].map((c) => (
             <a key={c.label} href={c.href} className="glass rounded-2xl p-6 hover-lift flex items-start gap-4">
