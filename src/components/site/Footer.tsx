@@ -42,5 +42,10 @@ export function Footer() {
           <p className="flex items-center gap-2"><MapPin className="w-4 h-4 text-primary" /><span>Nairobi, Kenya</span></p>
         </div>
       </div>
+
+      <div className="border-t border-border py-6 text-center text-sm text-muted-foreground">
+        © {new Date().getFullYear()} Msingi Labs. Building Africa's tech future.
+      </div>
+    </footer>
   );
 }
