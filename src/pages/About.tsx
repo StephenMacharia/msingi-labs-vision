@@ -1,24 +1,19 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Target, Eye, Heart, ArrowRight } from "lucide-react";
 
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About — Msingi Labs" },
-      { name: "description", content: "Msingi Labs is a youth-driven African technology and innovation company empowering the next generation through practical STEM education." },
-      { property: "og:title", content: "About Msingi Labs" },
-      { property: "og:description", content: "A youth-driven African innovation hub building future-ready digital talent." },
-      { property: "og:url", content: "/about" },
-    ],
-    links: [{ rel: "canonical", href: "/about" }],
-  }),
-  component: About,
-});
-
-function About() {
+export default function About() {
   return (
     <div className="container mx-auto px-6 py-16">
+      <Helmet>
+        <title>About — Msingi Labs</title>
+        <meta name="description" content="Msingi Labs is a youth-driven African technology and innovation company empowering the next generation through practical STEM education." />
+        <meta property="og:title" content="About Msingi Labs" />
+        <meta property="og:description" content="A youth-driven African innovation hub building future-ready digital talent." />
+        <link rel="canonical" href="/about" />
+      </Helmet>
+
       <SectionHeading
         eyebrow="About Us"
         title="We're building the African tech generation"
