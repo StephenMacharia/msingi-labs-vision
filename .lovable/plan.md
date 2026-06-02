@@ -1,36 +1,48 @@
-## Plan: Integrate Msingi Labs brand assets
+Migrate the project from TanStack Start (SSR + file-based routing) to a standard Vite + React SPA with React Router. This is a one-way change — TanStack Start, its file-based routes, server entry, and SSR wiring will be removed.
 
-### Assets
-- `logo_v1.png` — full horizontal logo (Africa + robot mark + "Msingi Labs" wordmark + tagline)
-- `logov3.png` — circular icon-only version (favicon / compact use)
+## What changes
 
-### Steps
+**Remove (TanStack Start / SSR):**
+- `src/routes/__root.tsx`, `src/router.tsx`, `src/routeTree.gen.ts`
+- `src/server.ts`, `src/start.ts`, `src/lib/error-capture.ts`, `src/lib/error-page.ts`
+- `src/lib/api/example.functions.ts`, `src/lib/config.server.ts`
+- `vite.config.ts` (replace with standard Vite + React config)
+- Dependencies: `@tanstack/react-start`, `@tanstack/react-router`, `@lovable.dev/vite-tanstack-config`, nitro-related plugins
 
-1. **Copy assets into the project**
-   - `user-uploads://logo_v1.png` → `src/assets/msingi-logo.png` (full logo, imported as ES6)
-   - `user-uploads://logov3.png` → `src/assets/msingi-icon.png` (icon, imported as ES6)
-   - Also copy the icon to `public/favicon.png` so browsers pick it up as the tab icon
+**Add:**
+- `index.html` (Vite SPA entry)
+- `src/main.tsx` (React root)
+- `src/App.tsx` (BrowserRouter + Routes)
+- `react-router-dom` dependency
+- New `vite.config.ts` using `@vitejs/plugin-react` + `@tailwindcss/vite`
 
-2. **Navbar (`src/components/site/Navbar.tsx`)**
-   - Replace the current gradient-square + `Cpu` icon + text wordmark with the real full logo (`msingi-logo.png`)
-   - Keep it crisp: render at ~h-10 on desktop, h-9 on mobile, with `width`/`height` set for layout stability
-   - Remove the inline "Msingi Labs" text since the logo already contains it
+**Rewrite (one per existing page):**
+- `src/routes/index.tsx` → `src/pages/Home.tsx`
+- `src/routes/about.tsx` → `src/pages/About.tsx`
+- `src/routes/services.tsx` → `src/pages/Services.tsx`
+- `src/routes/programs.tsx` → `src/pages/Programs.tsx`
+- `src/routes/contact.tsx` → `src/pages/Contact.tsx`
+- Convert `createFileRoute(...)` + `head()` → plain React components + `react-helmet-async` (or `<title>` set in effect) for per-page SEO
+- Update `<Link to="/about">` from `@tanstack/react-router` → `react-router-dom` (same API)
 
-3. **Footer (`src/components/site/Footer.tsx`)**
-   - Same swap: replace the gradient-square + Cpu + text with the full logo
-   - Sits naturally on the dark background
+**Keep unchanged:**
+- All `src/components/**` (Navbar, Footer, WhatsAppFloat, RegisterDialog, UI primitives)
+- `src/styles.css`, Tailwind tokens, design system
+- All form Formspree wiring
 
-4. **Favicon / head links (`src/routes/__root.tsx`)**
-   - Add `<link rel="icon" type="image/png" href="/favicon.png" />` and `apple-touch-icon` to the root route's `links` array
-   - Add `og:image` pointing to the full logo so social shares show branded preview
+## Trade-offs you should know
 
-5. **Optional polish**
-   - Use the circular icon as a subtle decorative element in the hero (small floating badge) — only if it reads well; otherwise skip to avoid clutter
+- **No more SSR** — pages render client-side only. SEO/meta tags will be set via React Helmet (still works for crawlers that execute JS, like Google, but weaker than SSR for previews on Twitter/LinkedIn/WhatsApp link unfurls).
+- **Lovable Cloud server functions** would stop working in this setup. You currently don't use any, so no impact today — but if you later want server-side logic (payments, sending emails server-side, secrets), you'd need to add a backend separately.
+- **Forms work fine** — Formspree is pure client-side POST, unaffected.
 
-### Files touched
-- `src/components/site/Navbar.tsx`
-- `src/components/site/Footer.tsx`
-- `src/routes/__root.tsx`
-- New: `src/assets/msingi-logo.png`, `src/assets/msingi-icon.png`, `public/favicon.png`
+## Plan
 
-No content/copy changes, no route changes — purely brand asset integration.
+1. Add `react-router-dom`, `@vitejs/plugin-react`, `@tailwindcss/vite`, `react-helmet-async`. Remove TanStack/Nitro packages.
+2. Write new `vite.config.ts`, `index.html`, `src/main.tsx`, `src/App.tsx` with routes for `/`, `/about`, `/services`, `/programs`, `/contact`, and a 404.
+3. Move each route file's component into `src/pages/*.tsx`, swap `createFileRoute` head() → `<Helmet>` tags, swap TanStack `Link` → `react-router-dom` `Link`.
+4. Update `Navbar` and `Footer` Link imports to `react-router-dom`.
+5. Delete all removed files listed above.
+6. Verify build, navigate every page in the preview, confirm Formspree forms still submit.
+
+After this is done the project is a pure Vite SPA and the deploy-blocking TanStack/SSR build path is gone.
