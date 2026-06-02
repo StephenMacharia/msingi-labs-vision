@@ -1,23 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Helmet } from "react-helmet-async";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Phone, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { z } from "zod";
-
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — Msingi Labs" },
-      { name: "description", content: "Get in touch with Msingi Labs — partner with us, enroll in a program, or book a workshop." },
-      { property: "og:title", content: "Contact Msingi Labs" },
-      { property: "og:description", content: "Let's build the future of African tech together." },
-      { property: "og:url", content: "/contact" },
-    ],
-    links: [{ rel: "canonical", href: "/contact" }],
-  }),
-  component: Contact,
-});
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -25,7 +11,7 @@ const schema = z.object({
   message: z.string().trim().min(10, "Message must be at least 10 characters").max(1000),
 });
 
-function Contact() {
+export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitting, setSubmitting] = useState(false);
 
@@ -55,6 +41,14 @@ function Contact() {
 
   return (
     <div className="container mx-auto px-6 py-16">
+      <Helmet>
+        <title>Contact — Msingi Labs</title>
+        <meta name="description" content="Get in touch with Msingi Labs — partner with us, enroll in a program, or book a workshop." />
+        <meta property="og:title" content="Contact Msingi Labs" />
+        <meta property="og:description" content="Let's build the future of African tech together." />
+        <link rel="canonical" href="/contact" />
+      </Helmet>
+
       <SectionHeading
         eyebrow="Get in Touch"
         title="Let's build the future together"
@@ -108,7 +102,7 @@ function Contact() {
         <div className="space-y-6">
           {[
             { icon: Phone, label: "Phone", val: "+254 726 333 992", href: "tel:+254726333992" },
-            { icon: MapPin, label: "Office", val: "Nairobi, Kenya" },
+            { icon: MapPin, label: "Office", val: "Nairobi, Kenya", href: undefined as string | undefined },
           ].map((c) => (
             <a key={c.label} href={c.href} className="glass rounded-2xl p-6 hover-lift flex items-start gap-4">
               <div className="w-12 h-12 rounded-xl bg-gradient-hero flex items-center justify-center flex-shrink-0">

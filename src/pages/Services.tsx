@@ -1,20 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Bot, Code2, Handshake, HeartHandshake, GraduationCap, Lightbulb, ArrowRight, CheckCircle2 } from "lucide-react";
-
-export const Route = createFileRoute("/services")({
-  head: () => ({
-    meta: [
-      { title: "Services — Msingi Labs" },
-      { name: "description", content: "Robotics training, coding classes, school robotics clubs, outreach programs, STEM workshops and tech consultancy for Africa." },
-      { property: "og:title", content: "Services — Msingi Labs" },
-      { property: "og:description", content: "Hands-on tech training and consultancy for students, schools and businesses." },
-      { property: "og:url", content: "/services" },
-    ],
-    links: [{ rel: "canonical", href: "/services" }],
-  }),
-  component: Services,
-});
 
 const services = [
   { icon: Bot, title: "Robotics Training", desc: "Hands-on robotics with Arduino, sensors and competition prep.", bullets: ["Arduino & microcontrollers", "Sensor integration", "Robotics competitions"], price: "KES 12,000 / 10 sessions" },
@@ -25,9 +12,17 @@ const services = [
   { icon: Lightbulb, title: "Tech Consultancy", desc: "Strategy and custom builds for the digital transformation journey.", bullets: ["Digital transformation", "Custom tech solutions", "Innovation strategy"], price: "For businesses" },
 ];
 
-function Services() {
+export default function Services() {
   return (
     <div className="container mx-auto px-6 py-16">
+      <Helmet>
+        <title>Services — Msingi Labs</title>
+        <meta name="description" content="Robotics training, coding classes, school robotics clubs, outreach programs, STEM workshops and tech consultancy for Africa." />
+        <meta property="og:title" content="Services — Msingi Labs" />
+        <meta property="og:description" content="Hands-on tech training and consultancy for students, schools and businesses." />
+        <link rel="canonical" href="/services" />
+      </Helmet>
+
       <SectionHeading
         eyebrow="Our Services"
         title="Everything you need to go from curious to capable"

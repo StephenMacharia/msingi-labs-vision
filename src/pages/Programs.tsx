@@ -1,20 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { ArrowRight } from "lucide-react";
-
-export const Route = createFileRoute("/programs")({
-  head: () => ({
-    meta: [
-      { title: "Programs — Msingi Labs" },
-      { name: "description", content: "Structured learning programs in coding, robotics and STEM for kids, schools and businesses." },
-      { property: "og:title", content: "Programs — Msingi Labs" },
-      { property: "og:description", content: "Project-based programs from kids coding to tech bootcamps and STEM workshops." },
-      { property: "og:url", content: "/programs" },
-    ],
-    links: [{ rel: "canonical", href: "/programs" }],
-  }),
-  component: Programs,
-});
 
 const programs = [
   { title: "Kids Coding Program", duration: "12 sessions", level: "Ages 8–14", outcome: "First working web app & game", highlights: ["Scratch → JavaScript", "Game building", "Mini portfolio"], price: "KES 12,000" },
@@ -23,11 +10,19 @@ const programs = [
   { title: "Tech Bootcamp", duration: "12 weeks", level: "Intermediate", outcome: "3 deployed projects in your portfolio", highlights: ["Full-stack web", "Cloud deployment", "Real client briefs"] },
   { title: "Holiday Tech Camp", duration: "2 weeks", level: "All ages", outcome: "Mini robotics & coding project", highlights: ["Daily builds", "Team challenges", "Showcase day"] },
   { title: "Educator Training", duration: "Custom", level: "Teachers & facilitators", outcome: "Confident to teach coding & robotics", highlights: ["Curriculum support", "Hands-on robotics & coding", "Classroom-ready resources"], price: "Custom partnership" },
-];
+] as Array<{ title: string; duration: string; level: string; outcome: string; highlights: string[]; price?: string }>;
 
-function Programs() {
+export default function Programs() {
   return (
     <div className="container mx-auto px-6 py-16">
+      <Helmet>
+        <title>Programs — Msingi Labs</title>
+        <meta name="description" content="Structured learning programs in coding, robotics and STEM for kids, schools and businesses." />
+        <meta property="og:title" content="Programs — Msingi Labs" />
+        <meta property="og:description" content="Project-based programs from kids coding to tech bootcamps and STEM workshops." />
+        <link rel="canonical" href="/programs" />
+      </Helmet>
+
       <SectionHeading
         eyebrow="Programs"
         title="Pick a pathway. Build something real."

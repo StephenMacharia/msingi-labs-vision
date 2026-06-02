@@ -1,36 +1,27 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import heroImg from "@/assets/hero-tech.jpg";
 import { RegisterDialog } from "@/components/site/RegisterDialog";
-import {
-  Bot, Code2, GraduationCap, Handshake,
-  ArrowRight, Sparkles,
-} from "lucide-react";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Msingi Labs — Building Africa's Future Through Technology" },
-      { name: "description", content: "Practical training in robotics, coding and STEM for students, schools and organizations across Africa." },
-      { property: "og:title", content: "Msingi Labs — Building Africa's Future" },
-      { property: "og:description", content: "Robotics, coding and STEM education for Africa's next generation." },
-      { property: "og:url", content: "/" },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-  }),
-  component: Home,
-});
+import { Bot, Code2, GraduationCap, Handshake, ArrowRight, Sparkles } from "lucide-react";
 
 const highlights = [
-  { icon: Bot, title: "Robotics & Coding", desc: "Hands-on training for students, schools and groups.", to: "/services" as const, cta: "See services" },
-  { icon: GraduationCap, title: "Structured Programs", desc: "Project-based pathways from kids to university bootcamps.", to: "/programs" as const, cta: "Browse programs" },
-  { icon: Handshake, title: "Schools Partnerships", desc: "We set up and run sustainable robotics clubs in schools.", to: "/about" as const, cta: "About us" },
-  { icon: Code2, title: "Talk to us", desc: "Custom timelines for schools, businesses and individuals.", to: "/contact" as const, cta: "Get in touch" },
+  { icon: Bot, title: "Robotics & Coding", desc: "Hands-on training for students, schools and groups.", to: "/services", cta: "See services" },
+  { icon: GraduationCap, title: "Structured Programs", desc: "Project-based pathways from kids to university bootcamps.", to: "/programs", cta: "Browse programs" },
+  { icon: Handshake, title: "Schools Partnerships", desc: "We set up and run sustainable robotics clubs in schools.", to: "/about", cta: "About us" },
+  { icon: Code2, title: "Talk to us", desc: "Custom timelines for schools, businesses and individuals.", to: "/contact", cta: "Get in touch" },
 ];
 
-function Home() {
+export default function Home() {
   return (
     <>
-      {/* HERO */}
+      <Helmet>
+        <title>Msingi Labs — Building Africa's Future Through Technology</title>
+        <meta name="description" content="Practical training in robotics, coding and STEM for students, schools and organizations across Africa." />
+        <meta property="og:title" content="Msingi Labs — Building Africa's Future" />
+        <meta property="og:description" content="Robotics, coding and STEM education for Africa's next generation." />
+        <link rel="canonical" href="/" />
+      </Helmet>
+
       <section className="relative overflow-hidden">
         <div className="container mx-auto px-6 pt-12 pb-24 lg:pt-20 lg:pb-28 grid lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-up">
@@ -73,15 +64,10 @@ function Home() {
         </div>
       </section>
 
-      {/* HIGHLIGHTS — compact pointers to dedicated pages */}
       <section className="container mx-auto px-6 pb-24">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {highlights.map((h) => (
-            <Link
-              key={h.title}
-              to={h.to}
-              className="glass rounded-2xl p-7 hover-lift group block"
-            >
+            <Link key={h.title} to={h.to} className="glass rounded-2xl p-7 hover-lift group block">
               <div className="w-12 h-12 rounded-xl bg-gradient-hero flex items-center justify-center mb-4 glow-cyan group-hover:scale-110 transition-transform">
                 <h.icon className="w-6 h-6 text-primary-foreground" />
               </div>
@@ -95,7 +81,6 @@ function Home() {
         </div>
       </section>
 
-      {/* CTA BANNER */}
       <section className="container mx-auto px-6 pb-24">
         <div className="relative overflow-hidden rounded-3xl bg-gradient-hero p-12 md:p-20 text-center glow-purple">
           <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, white, transparent 50%), radial-gradient(circle at 80% 50%, white, transparent 50%)" }} />
