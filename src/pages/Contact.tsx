@@ -102,6 +102,7 @@ export default function Contact() {
         <div className="space-y-6">
           {[
             { icon: Phone, label: "Phone", val: "+254 726 333 992", href: "tel:+254726333992" },
+            { icon: Phone, label: "Phone", val: "+254 720 200 920", href: "tel:+254720200920" },
             { icon: MapPin, label: "Office", val: "Nairobi, Kenya", href: undefined as string | undefined },
           ].map((c) => (
             <a key={c.label} href={c.href} className="glass rounded-2xl p-6 hover-lift flex items-start gap-4">
